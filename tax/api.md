@@ -1,6 +1,45 @@
 # API说明
 
+## 访问方式
 
+提供一个以Http协议访问的URL，如：
 
+> http://localhost/api.jsp
+
+数据以Post方式发送，内容包括以下部分：
+
+* type : 发送的是哪种数据
+* data : 数据的json字符串，具体Json中为Key和Value组成的键值对
+* sign : 用于进行安全验证的签名，**这个版本先不实现**
+
+## 数据格式
+
+当前共有两种数据格式，用不同的type区分：
+
+* company : 公司数据，在公司注册的时候调用
+* pay : 交易数据，在公司向个人支付时调用
+
+不同类型数据中，data包含的数据格式如下：
+
+### company
+
+* id : 字符串，公司的唯一标示，一般为税号
+* name : 字符串，公司的名称
+* address : 字符串，公司地址
+* phone : 字符串，公司电话
+* linkman : 字符串，公司联系人
+* main : 字符串，公司邮件
+* time : 数字，时间戳，精确到秒
+
+### pay
+
+* company_id : 字符串，公司代码
+* company_name : 字符串，公司名称
+* user_name : 字符串，个人用户名称
+* user_id_card : 字符串，个人用户的身份证号
+* user_mobile : 字符串，个人用户的手机号
+* user_bank_name : 字符串，个人用户的开户行
+* user_bank_card : 字符串，个人用户的银行卡号
+* time : 数字，时间戳，精确到秒
 
 
