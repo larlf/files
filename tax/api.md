@@ -8,8 +8,9 @@
 
 数据以Post方式发送，内容包括以下部分：
 
-* type : 发送的是哪种数据
+* type : 发送的是哪种数据(company|pay)
 * data : 数据的json字符串，具体Json中为Key和Value组成的键值对
+* order_id : 字符串，业务流水号
 * sign : 用于进行安全验证的签名，**这个版本先不实现**
 
 ## 数据格式
@@ -23,7 +24,6 @@
 
 ### company
 
-* order_id : 字符串，业务流水号
 * id : 字符串，公司的唯一标示，一般为税号
 * name : 字符串，公司的名称
 * address : 字符串，公司地址
@@ -34,7 +34,6 @@
 
 ### pay
 
-* order_id : 字符串，业务流水号
 * company_id : 字符串，公司代码
 * company_name : 字符串，公司名称
 * user_name : 字符串，个人用户名称
